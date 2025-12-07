@@ -1,7 +1,7 @@
 //gameboard.js
 import {ship} from "../factories/ship"
 function gameboard() {
-    let shipsWithPositions;
+    let shipsWithPositions = [];
     const areArraysEqual = (arr1, arr2) => {
         if (arr1.length !== arr2.length) {
             return false;
@@ -15,24 +15,26 @@ function gameboard() {
     }
     const placeShip = (coordinates, length) => {
         const myship = ship(length);
-        shipsWithPositions = [{
-            myship,
-            shiplength: myship.length,
-            shipcoordinates: []
-        }];
+
+        if(shipsWithPositions.length === 0) {
+            shipsWithPositions.push({
+                    myship,
+                    shiplength: myship.shipLength(),
+                    shipcoordinates: []
+                })   
+        }
         for(let ship of shipsWithPositions) {
             if(ship.shiplength === length) {
                 ship.shipcoordinates.push(coordinates)
             } else {
                 shipsWithPositions.push({
                     myship,
-                    shiplength: myship.length,
+                    shiplength: myship.shipLength(),
                     shipcoordinates: []
                 })
             }
         }
-        return shipsWithPositions;
-        
+  
     }
     const receiveAttack = (attackCoordinates) => {
         for(let ship of shipsWithPositions) {
