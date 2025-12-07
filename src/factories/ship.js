@@ -1,6 +1,7 @@
 //ship.js
 function ship(length = 1) {
     let shipHitTimes = 0;
+    const shipLength = () => length;
     const timesHit = () => shipHitTimes;
     const hit = () => shipHitTimes++;
     const isSunk = () => {
@@ -12,7 +13,8 @@ function ship(length = 1) {
     return {
         hit,
         timesHit,
-        isSunk
+        isSunk,
+        shipLength
     }
 }
 export {ship}
