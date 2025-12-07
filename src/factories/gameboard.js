@@ -15,26 +15,12 @@ function gameboard() {
     }
     const placeShip = (coordinates, length) => {
         const myship = ship(length);
-
-        if(shipsWithPositions.length === 0) {
-            shipsWithPositions.push({
+        const newShipEntry = {
                     myship,
                     shiplength: myship.shipLength(),
-                    shipcoordinates: []
-                })   
-        }
-        for(let ship of shipsWithPositions) {
-            if(ship.shiplength === length) {
-                ship.shipcoordinates.push(coordinates)
-            } else {
-                shipsWithPositions.push({
-                    myship,
-                    shiplength: myship.shipLength(),
-                    shipcoordinates: []
-                })
-            }
-        }
-  
+                    shipcoordinates: [coordinates]
+                }
+        shipsWithPositions.push(newShipEntry);   
     }
     const receiveAttack = (attackCoordinates) => {
         for(let ship of shipsWithPositions) {
@@ -48,7 +34,8 @@ function gameboard() {
     }
     return {
         placeShip,
-        receiveAttack
+        receiveAttack,
+        shipsWithPositions
     }
 }
 export {gameboard}
