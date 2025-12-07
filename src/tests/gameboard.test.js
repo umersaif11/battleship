@@ -23,3 +23,9 @@ test('Can placeShip() calculates next coordinates?', () => {
     mygameboard.placeShip([0, 0], 3);
     expect(mygameboard.shipsWithPositions[0].shipcoordinates.length).toBe(3);
 })
+test("Can placeShip() calculates next coordinates's direction?", () => {
+    const mygameboard = gameboard();
+    mygameboard.placeShip([0, 0], 3, 'y');
+    console.log(mygameboard.shipsWithPositions);
+    expect(mygameboard.shipsWithPositions[0].shipcoordinates[2]).toBe([0,2]);
+})
