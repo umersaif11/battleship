@@ -13,13 +13,19 @@ function gameboard() {
         }
         return true;
     }
-    const placeShip = (coordinates, length) => {
+    const placeShip = (coordinates, length, axis = 'x') => {
         const myship = ship(length);
         let allCoordinates = [];
         for(let i = 0; i < length; i++) {
+            if(axis === 'x') {
                 allCoordinates.push(
                     [coordinates[0] + i, coordinates[1]]
                 )
+            } else if(axis === 'y') {
+                allCoordinates.push(
+                    [coordinates[0], coordinates[1] + i]
+                )
+            }
         }
         const newShipEntry = {
                     myship,
