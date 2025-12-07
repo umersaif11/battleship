@@ -15,10 +15,16 @@ function gameboard() {
     }
     const placeShip = (coordinates, length) => {
         const myship = ship(length);
+        let allCoordinates = [];
+        for(let i = 0; i < length; i++) {
+                allCoordinates.push(
+                    [coordinates[0] + i, coordinates[1]]
+                )
+        }
         const newShipEntry = {
                     myship,
                     shiplength: myship.shipLength(),
-                    shipcoordinates: [coordinates]
+                    shipcoordinates: allCoordinates
                 }
         shipsWithPositions.push(newShipEntry);   
     }
