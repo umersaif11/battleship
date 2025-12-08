@@ -47,11 +47,20 @@ function gameboard() {
         missingShots.push(attackCoordinates);
         return false;
     }
+    const allShipsSunk = () => {
+        for(let ship of shipsWithPositions) {
+            if(!ship.myship.isSunk()) {
+                return false;
+            }
+        }
+        return true;
+    }
     return {
         placeShip,
         receiveAttack,
         shipsWithPositions,
-        missingShots
+        missingShots,
+        allShipsSunk
     }
 }
 export {gameboard}
