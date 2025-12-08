@@ -26,6 +26,12 @@ test('Can placeShip() calculates next coordinates?', () => {
 test("Can placeShip() calculates next coordinates's direction?", () => {
     const mygameboard = gameboard();
     mygameboard.placeShip([0, 0], 3, 'y');
-    console.log(mygameboard.shipsWithPositions);
     expect(mygameboard.shipsWithPositions[0].shipcoordinates[2]).toEqual([0,2]);
+})
+test('Can receiveAttack() determine which specific ship is hit?', () => {
+    const mygameboard = gameboard();
+    mygameboard.placeShip([0,0], 3);
+    mygameboard.receiveAttack([2,0]);
+    console.log(mygameboard.shipsWithPositions);
+    expect(mygameboard.shipsWithPositions[0].myship.timesHit()).toBe(1);
 })
