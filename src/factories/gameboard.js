@@ -38,6 +38,7 @@ function gameboard() {
         for(let ship of shipsWithPositions) {
             for(let coordinate of ship.shipcoordinates) {
                 if(areArraysEqual(coordinate, attackCoordinates)) {
+                    ship.myship.hit();
                     return true;
                 }
             }
