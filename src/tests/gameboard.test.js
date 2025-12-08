@@ -30,8 +30,13 @@ test("Can placeShip() calculates next coordinates's direction?", () => {
 })
 test('Can receiveAttack() determine which specific ship is hit?', () => {
     const mygameboard = gameboard();
-    mygameboard.placeShip([0,0], 3);
-    mygameboard.receiveAttack([2,0]);
-    console.log(mygameboard.shipsWithPositions);
+    mygameboard.placeShip([0, 0], 3);
+    mygameboard.receiveAttack([2, 0]);
     expect(mygameboard.shipsWithPositions[0].myship.timesHit()).toBe(1);
+})
+test('Can receiveAttack() records the coordinates of missed shots?', () => {
+    const mygameboard = gameboard();
+    mygameboard.placeShip([0, 0], 3);
+    mygameboard.receiveAttack([3, 3]);
+    expect(mygameboard.missingShots[0]).toEqual([3, 3]);
 })
