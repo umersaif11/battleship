@@ -40,3 +40,16 @@ test('Can receiveAttack() records the coordinates of missed shots?', () => {
     mygameboard.receiveAttack([3, 3]);
     expect(mygameboard.missingShots[0]).toEqual([3, 3]);
 })
+test('Have all the ships been sunk?', () => {
+    const mygameboard = gameboard();
+    //place two ships
+    mygameboard.placeShip([0, 0], 1);
+    mygameboard.placeShip([1, 0], 1);
+    //sink first one
+    mygameboard.receiveAttack([0, 0]);
+    //expect allShipsSunk() to be false
+    expect(mygameboard.allShipsSunk()).toBe(false);
+    //now sink second one
+    mygameboard.receiveAttack([1, 0]);
+    expect(mygameboard.allShipsSunk()).toBe(true);  
+})
