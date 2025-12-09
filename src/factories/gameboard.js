@@ -60,7 +60,8 @@ function gameboard() {
         receiveAttack,
         shipsWithPositions,
         missingShots,
-        allShipsSunk
+        allShipsSunk, 
+        areArraysEqual
     }
 }
 export {gameboard}
