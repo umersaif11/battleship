@@ -1,7 +1,7 @@
 //dom.js
-function renderBoard(htmlId, gameboardObject) {
+function renderBoard(htmlId, gameboardObject, clickCallback) {
     const container = document.getElementById(`${htmlId}`);
-    container.innerText = '';
+    container.innerHTML = '';
     for(let i = 0; i < 10; i++) {
         for(let j = 0; j < 10; j++) {
             const div = document.createElement("div");
@@ -14,6 +14,12 @@ function renderBoard(htmlId, gameboardObject) {
                             div.classList.add('ship');
                         }
                     })
+                })
+            } else {
+                div.addEventListener('click', () => {
+                    if(clickCallback) {
+                        clickCallback([j, i]);
+                    }
                 })
             }
             container.appendChild(div);
