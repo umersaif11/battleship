@@ -16,8 +16,9 @@ function main() {
         console.log('Human wins!');
         return;
        }
-       let randomNumber = Math.floor(Math.random() * 10);
-       players.human.gameboard.receiveAttack([randomNumber, randomNumber]);
+       let XrandomNumber = Math.floor(Math.random() * 10);
+       let YrandomNumber = Math.floor(Math.random() * 10);
+       players.human.gameboard.receiveAttack([XrandomNumber, YrandomNumber]);
        renderUI();
        if(players.human.gameboard.allShipsSunk()) {
         console.log('Computer wins!');
