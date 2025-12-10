@@ -12,6 +12,17 @@ function main() {
     const handleAttack = (coordinates) => {
        players.computer.gameboard.receiveAttack(coordinates);
        renderUI();
+       if(players.computer.gameboard.allShipsSunk()) {
+        console.log('Human wins!');
+        return;
+       }
+       let randomNumber = Math.floor(Math.random() * 10);
+       players.human.gameboard.receiveAttack([randomNumber, randomNumber]);
+       renderUI();
+       if(players.human.gameboard.allShipsSunk()) {
+        console.log('Computer wins!');
+        return;
+       }
     }
 
     renderUI();
