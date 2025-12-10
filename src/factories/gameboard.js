@@ -35,11 +35,13 @@ function gameboard() {
         shipsWithPositions.push(newShipEntry);   
     }
     let missingShots = [];
+    let successfulShots = [];
     const receiveAttack = (attackCoordinates) => {
         for(let ship of shipsWithPositions) {
             for(let coordinate of ship.shipcoordinates) {
                 if(areArraysEqual(coordinate, attackCoordinates)) {
                     ship.myship.hit();
+                    successfulShots.push(attackCoordinates);
                     return true;
                 }
             }
@@ -59,6 +61,7 @@ function gameboard() {
         placeShip,
         receiveAttack,
         shipsWithPositions,
+        successfulShots,
         missingShots,
         allShipsSunk, 
         areArraysEqual
