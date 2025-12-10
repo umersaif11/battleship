@@ -31,3 +31,13 @@ body {
     border: 1px solid #2b506e;
     color: #ccc;
 }
+.miss {
+    background-color: #6ac187; 
+    border: 1px solid #1f8808;
+    color: #f0efef;
+}
+.hit {
+    background-color: #bf6873; 
+    border: 1px solid #c30b0b;
+    color: #ccc;
+}
