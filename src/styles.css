@@ -35,9 +35,11 @@ body {
     background-color: #6ac187; 
     border: 1px solid #1f8808;
     color: #f0efef;
+    pointer-events: none;
 }
 .hit {
     background-color: #bf6873; 
     border: 1px solid #c30b0b;
     color: #ccc;
+    pointer-events: none;
 }
