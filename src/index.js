@@ -7,9 +7,11 @@ function main() {
     const players = startGame();
     const renderUI = () => {
         renderBoard('human-board', players.human.gameboard);
-        renderBoard('computer-board', players.computer.gameboard, (coordinates) => {
-            console.log("Attack recieved at:", coordinates);
-        });
+        renderBoard('computer-board', players.computer.gameboard, handleAttack);
+    }
+    const handleAttack = (coordinates) => {
+       players.computer.gameboard.receiveAttack(coordinates);
+       renderUI();
     }
 
     renderUI();
