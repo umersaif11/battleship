@@ -22,6 +22,16 @@ function renderBoard(htmlId, gameboardObject, clickCallback) {
                     }
                 })
             }
+            gameboardObject.missingShots.forEach(miss => {
+                if(gameboardObject.areArraysEqual(miss, [j, i])) {
+                    div.classList.add('miss');
+                }
+            })
+            gameboardObject.successfulShots.forEach(hit => {
+                if(gameboardObject.areArraysEqual(hit, [j, i])) {
+                    div.classList.add('hit');
+                }
+            })
             container.appendChild(div);
         }
     }
