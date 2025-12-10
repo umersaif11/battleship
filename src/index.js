@@ -4,7 +4,7 @@ import {startGame} from "./controller/gamecontroller"
 import {renderBoard} from "./ui/dom"
 
 function main() {
-    const players = startGame();
+    let players = startGame();
     const renderUI = () => {
         renderBoard('human-board', players.human.gameboard);
         renderBoard('computer-board', players.computer.gameboard, handleAttack);
@@ -14,6 +14,8 @@ function main() {
        renderUI();
        if(players.computer.gameboard.allShipsSunk()) {
         console.log('Human wins!');
+        players = startGame();
+        renderUI();
         return;
        }
        let XrandomNumber = Math.floor(Math.random() * 10);
@@ -22,6 +24,8 @@ function main() {
        renderUI();
        if(players.human.gameboard.allShipsSunk()) {
         console.log('Computer wins!');
+        players = startGame();
+        renderUI();
         return;
        }
     }
