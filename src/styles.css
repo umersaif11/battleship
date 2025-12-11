@@ -43,3 +43,36 @@ body {
     color: #ccc;
     pointer-events: none;
 }
+#winnerDialog {
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 10px;
+  height: 150px;
+  width: 310px;
+  background-color: #333;
+  color: #eee;
+}
+#winnerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#winnerForm h2 {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#playagainButton {
+  width: 60%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-family: 'Lumanosimo';
+  cursor: pointer;
+  border: none;
+}
+#playagainButton:hover {
+    background-color: #5a9cd0;
+    color: #eee;
+}
