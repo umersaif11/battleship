@@ -5,6 +5,9 @@ import {renderBoard} from "./ui/dom"
 
 function main() {
     let players = startGame();
+    const popupDialog = document.querySelector("#winnerDialog");
+    const announceWinner = document.querySelector("#announceWinner");
+    const playagainButton = document.querySelector("#playagainButton");
 
     const renderUI = () => {
         renderBoard('human-board', players.human.gameboard);
@@ -15,9 +18,11 @@ function main() {
        players.computer.gameboard.receiveAttack(coordinates);
        renderUI();
        if(players.computer.gameboard.allShipsSunk()) {
-        console.log('Human wins!');
-        players = startGame();
-        renderUI();
+        // players = startGame();
+        // renderUI();
+        popupDialog.showModal();
+        announceWinner.textContent = "Human wins!";
+        
         return;
        }
 
@@ -43,9 +48,10 @@ function main() {
        players.human.gameboard.receiveAttack([XrandomNumber, YrandomNumber]);
        renderUI();
        if(players.human.gameboard.allShipsSunk()) {
-        console.log('Computer wins!');
-        players = startGame();
-        renderUI();
+        // players = startGame();
+        // renderUI();
+        popupDialog.showModal();
+        announceWinner.textContent = "Computer wins!";
         return;
        }
     }
