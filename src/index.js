@@ -18,8 +18,6 @@ function main() {
        players.computer.gameboard.receiveAttack(coordinates);
        renderUI();
        if(players.computer.gameboard.allShipsSunk()) {
-        // players = startGame();
-        // renderUI();
         popupDialog.showModal();
         announceWinner.textContent = "Human wins!";
         
@@ -48,13 +46,16 @@ function main() {
        players.human.gameboard.receiveAttack([XrandomNumber, YrandomNumber]);
        renderUI();
        if(players.human.gameboard.allShipsSunk()) {
-        // players = startGame();
-        // renderUI();
         popupDialog.showModal();
         announceWinner.textContent = "Computer wins!";
         return;
        }
     }
+    playagainButton.addEventListener("click", () => {
+        players = startGame();
+        renderUI();
+        popupDialog.close();
+    })
 
     renderUI();
 }
