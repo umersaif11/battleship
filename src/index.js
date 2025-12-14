@@ -71,6 +71,15 @@ function main() {
 
     let shipLengths = [5, 4, 3, 3, 2];
     let currentShipIndex = 0;
+    const handlePlacement = (coordinates) => {
+        if(players.human.gameboard.placeShip(
+            coordinates,
+            shipLengths[currentShipIndex],
+            axis
+        )) {
+            
+        }
+    }
 
     renderUI();
 }
