@@ -27,20 +27,30 @@ function gameboard() {
                 )
             }
         }
-        allCoordinates.forEach(coordinate => {
+        for(let coordinate of allCoordinates) {
             if(
                 coordinate[0] < 0 ||
-                coordinate[0] > 10 ||
+                coordinate[0] >= 10 ||
                 coordinate[1] < 0 ||
-                coordinate[1] > 10
+                coordinate[1] >= 10
             ) return false;
-        })
+
+            for(let ship of shipsWithPositions) {
+                for(let otherShipcoordinate of ship.shipcoordinates) {
+                    if(areArraysEqual(coordinate, otherShipcoordinate)) {
+                        return false;
+                  } 
+                }
+            }
+        }
+        
         const newShipEntry = {
                     myship,
                     shiplength: myship.shipLength(),
                     shipcoordinates: allCoordinates
                 }
         shipsWithPositions.push(newShipEntry);   
+        return true;
     }
     let missingShots = [];
     let successfulShots = [];
