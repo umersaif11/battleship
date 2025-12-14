@@ -27,6 +27,14 @@ function gameboard() {
                 )
             }
         }
+        allCoordinates.forEach(coordinate => {
+            if(
+                coordinate[0] < 0 ||
+                coordinate[0] > 10 ||
+                coordinate[1] < 0 ||
+                coordinate[1] > 10
+            ) return false;
+        })
         const newShipEntry = {
                     myship,
                     shiplength: myship.shipLength(),
