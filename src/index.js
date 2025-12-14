@@ -20,7 +20,6 @@ function main() {
        if(players.computer.gameboard.allShipsSunk()) {
         popupDialog.showModal();
         announceWinner.textContent = "Human wins!";
-        
         return;
        }
 
@@ -51,10 +50,17 @@ function main() {
         return;
        }
     }
+
     playagainButton.addEventListener("click", () => {
         players = startGame();
         renderUI();
         popupDialog.close();
+    })
+
+    let axis = 'x';
+    let rotateAxis = document.getElementById("rotate-btn");
+    rotateAxis.addEventListener("click", () => {
+        axis = axis === 'x' ? 'y' : 'x';
     })
 
     renderUI();
