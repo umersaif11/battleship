@@ -60,8 +60,17 @@ function main() {
     let axis = 'x';
     let rotateAxis = document.getElementById("rotate-btn");
     rotateAxis.addEventListener("click", () => {
-        axis = axis === 'x' ? 'y' : 'x';
+        if(axis === 'x') {
+            axis = 'y';
+            rotateAxis.textContent = "Rotate Axis [X]";
+        } else {
+            axis = 'x';
+            rotateAxis.textContent = "Rotate Axis [Y]";
+        }
     })
+
+    let shipLengths = [5, 4, 3, 3, 2];
+    let currentShipIndex = 0;
 
     renderUI();
 }
