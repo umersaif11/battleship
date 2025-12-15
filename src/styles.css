@@ -18,6 +18,10 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
+.active {
+  background-color: #333;
+  color: #eee;
+}
 #human-board, #computer-board {
     display: grid;
     grid-template-columns: repeat(10, 40px);
