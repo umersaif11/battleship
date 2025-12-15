@@ -88,13 +88,11 @@ function main() {
         )) {
             let fleetofships = document.getElementById("fleet");
             let fleetChildrenList = fleetofships.children;
-             fleetChildrenList[currentShipIndex].classList.remove("active");
-            if(currentShipIndex + 1 < 5) {
-                fleetChildrenList[currentShipIndex + 1].classList.add("active");
-            }
-
-            renderUI();
+            fleetChildrenList[currentShipIndex].classList.remove("active");
             currentShipIndex++;
+            if(currentShipIndex < 5) {
+                fleetChildrenList[currentShipIndex].classList.add("active");
+            }
             
             if(currentShipIndex === 5) {
                 let shipharbour = document.getElementById("ship-harbor");
@@ -104,6 +102,7 @@ function main() {
 
                 isPlacementPhase = false;
             }
+            renderUI();
         }
     }
 
