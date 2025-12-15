@@ -66,8 +66,20 @@ function main() {
 
     playagainButton.addEventListener("click", () => {
         players = startGame();
-        renderUI();
+        currentShipIndex = 0;
+        isPlacementPhase = true;
+
+        let shipharbour = document.getElementById("ship-harbor");
+        shipharbour.style.display = "flex";
+        let computerboard = document.getElementById("computer-board");
+        computerboard.style.display = "none";
+
+        let fleetChildren = document.getElementById("fleet").children;
+        for(let child of fleetChildren) child.classList.remove("active");
+        fleetChildren[0].classList.add("active");
+
         popupDialog.close();
+        renderUI();
     })
 
     rotateAxis.addEventListener("click", () => {
