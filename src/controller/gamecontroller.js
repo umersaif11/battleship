@@ -13,7 +13,10 @@ function startGame() {
             const randomY = Math.floor(Math.random() * 10);
             const randomAxis = Math.random() < 0.5 ? 'x' : 'y';
 
-            if(computer.gameboard.placeShip([randomX, randomY], length, randomAxis)) {
+            if(computer.gameboard.placeShip(
+                [randomX, randomY], 
+                length, 
+                randomAxis)) {
                 placed = true;
             }
         }
