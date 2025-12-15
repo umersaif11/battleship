@@ -6,7 +6,7 @@ function renderBoard(htmlId, gameboardObject, clickCallback) {
         for(let j = 0; j < 10; j++) {
             const div = document.createElement("div");
             div.classList.add('grid-square');
-            div.innerText = `${j}, ${i}`;
+            // div.innerText = `${j}, ${i}`;
             if(!htmlId.includes('computer')) {
                 gameboardObject.shipsWithPositions.forEach(ship => {
                     ship.shipcoordinates.forEach(coordinate => {
