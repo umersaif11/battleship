@@ -98,7 +98,9 @@ function main() {
                 let shipharbour = document.getElementById("ship-harbor");
                 shipharbour.style.display = "none";
                 let computerboard = document.getElementById("computer-board");
-                computerboard.style.display = "grid";
+                setTimeout(() => {
+                    computerboard.style.display = "grid";
+                }, 2000);
 
                 isPlacementPhase = false;
             }
