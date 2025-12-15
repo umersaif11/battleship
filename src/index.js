@@ -77,11 +77,24 @@ function main() {
             shipLengths[currentShipIndex],
             axis
         )) {
-            renderUI();
-            for(let i = 0; i < shipLengths; i++) {
-                
+            let fleetofships = document.getElementById("fleet");
+            let fleetChildrenList = fleetofships.children;
+            for(let i = 0; i < fleetChildrenList.length; i++) {
+                if(currentShipIndex === i) {
+                    fleetChildrenList[i].classList.add("active");
+                }
+                fleetChildrenList[i].classList.remove("active");
             }
+
+            renderUI();
             currentShipIndex++;
+            
+            if(currentShipIndex === 5) {
+                let shipharbour = document.getElementById("ship-harbor");
+                shipharbour.style.display = "none";
+                let computerboard = document.getElementById("computer-board");
+                computerboard.removeAttribute('display');
+            }
         }
     }
 
