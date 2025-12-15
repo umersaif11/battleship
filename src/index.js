@@ -14,12 +14,19 @@ function main() {
     let shipLengths = [5, 4, 3, 3, 2];
     let currentShipIndex = 0;
 
+    let isPlacementPhase = true;
+
     const popupDialog = document.querySelector("#winnerDialog");
     const announceWinner = document.querySelector("#announceWinner");
     const playagainButton = document.querySelector("#playagainButton");
 
+    let rotateAxis = document.getElementById("rotate-btn");
+
     const renderUI = () => {
-        renderBoard('human-board', players.human.gameboard,handlePlacement);
+        renderBoard(
+            'human-board', 
+            players.human.gameboard,
+            isPlacementPhase ? handlePlacement : null);
         renderBoard('computer-board', players.computer.gameboard, handleAttack);
     }
 
@@ -63,7 +70,6 @@ function main() {
         popupDialog.close();
     })
 
-    let rotateAxis = document.getElementById("rotate-btn");
     rotateAxis.addEventListener("click", () => {
         if(axis === 'x') {
             axis = 'y';
@@ -95,6 +101,8 @@ function main() {
                 shipharbour.style.display = "none";
                 let computerboard = document.getElementById("computer-board");
                 computerboard.style.display = "grid";
+
+                isPlacementPhase = false;
             }
         }
     }
