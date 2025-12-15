@@ -15,11 +15,10 @@ function renderBoard(htmlId, gameboardObject, clickCallback) {
                         }
                     })
                 })
-            } else {
+            } 
+            if(clickCallback) {
                 div.addEventListener('click', () => {
-                    if(clickCallback) {
-                        clickCallback([j, i]);
-                    }
+                    clickCallback([j, i]);
                 })
             }
             gameboardObject.missingShots.forEach(miss => {
