@@ -10,7 +10,7 @@ function main() {
     const playagainButton = document.querySelector("#playagainButton");
 
     const renderUI = () => {
-        renderBoard('human-board', players.human.gameboard);
+        renderBoard('human-board', players.human.gameboard,handlePlacement);
         renderBoard('computer-board', players.computer.gameboard, handleAttack);
     }
 
@@ -77,7 +77,11 @@ function main() {
             shipLengths[currentShipIndex],
             axis
         )) {
-            
+            renderUI();
+            for(let i = 0; i < shipLengths; i++) {
+                
+            }
+            currentShipIndex++;
         }
     }
 
