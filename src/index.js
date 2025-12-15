@@ -5,6 +5,15 @@ import {renderBoard} from "./ui/dom"
 
 function main() {
     let players = startGame();
+
+    let XrandomNumber;
+    let YrandomNumber;
+    let isDuplicate = false;
+
+    let axis = 'x';
+    let shipLengths = [5, 4, 3, 3, 2];
+    let currentShipIndex = 0;
+
     const popupDialog = document.querySelector("#winnerDialog");
     const announceWinner = document.querySelector("#announceWinner");
     const playagainButton = document.querySelector("#playagainButton");
@@ -23,9 +32,6 @@ function main() {
         return;
        }
 
-       let XrandomNumber;
-       let YrandomNumber;
-       let isDuplicate = false;
        do {
         XrandomNumber = Math.floor(Math.random() * 10);
         YrandomNumber = Math.floor(Math.random() * 10);
@@ -57,20 +63,17 @@ function main() {
         popupDialog.close();
     })
 
-    let axis = 'x';
     let rotateAxis = document.getElementById("rotate-btn");
     rotateAxis.addEventListener("click", () => {
         if(axis === 'x') {
             axis = 'y';
-            rotateAxis.textContent = "Rotate Axis [X]";
+            rotateAxis.textContent = "Rotate Axis [Y]";
         } else {
             axis = 'x';
-            rotateAxis.textContent = "Rotate Axis [Y]";
+            rotateAxis.textContent = "Rotate Axis [X]";
         }
     })
 
-    let shipLengths = [5, 4, 3, 3, 2];
-    let currentShipIndex = 0;
     const handlePlacement = (coordinates) => {
         if(players.human.gameboard.placeShip(
             coordinates,
