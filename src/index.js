@@ -68,6 +68,8 @@ function main() {
         players = startGame();
         currentShipIndex = 0;
         isPlacementPhase = true;
+        axis = 'x';
+        rotateAxis.textContent = "Rotate Axis [X]";
 
         let shipharbour = document.getElementById("ship-harbor");
         shipharbour.style.display = "flex";
