@@ -79,11 +79,9 @@ function main() {
         )) {
             let fleetofships = document.getElementById("fleet");
             let fleetChildrenList = fleetofships.children;
-            for(let i = 0; i < fleetChildrenList.length; i++) {
-                if(currentShipIndex === i) {
-                    fleetChildrenList[i].classList.add("active");
-                }
-                fleetChildrenList[i].classList.remove("active");
+             fleetChildrenList[currentShipIndex].classList.remove("active");
+            if(currentShipIndex + 1 < 5) {
+                fleetChildrenList[currentShipIndex + 1].classList.add("active");
             }
 
             renderUI();
@@ -93,7 +91,7 @@ function main() {
                 let shipharbour = document.getElementById("ship-harbor");
                 shipharbour.style.display = "none";
                 let computerboard = document.getElementById("computer-board");
-                computerboard.removeAttribute('display');
+                computerboard.style.display = "grid";
             }
         }
     }
